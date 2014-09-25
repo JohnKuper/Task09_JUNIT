@@ -6,7 +6,7 @@ import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
 @SuiteClasses({ OwnMapperTest.class, ValidatorOfClassesTest.class,
-		MapperProviderTest.class })
+		MapperProviderTest.class, ObjectForMappingFactoryTest.class })
 public class AllTests {
 
 }

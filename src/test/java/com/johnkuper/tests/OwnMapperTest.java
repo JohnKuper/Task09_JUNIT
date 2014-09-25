@@ -32,7 +32,7 @@ public class OwnMapperTest {
 	@Mock
 	MapperProvider mProviderMock;
 
-	@Test()
+	@Test
 	public void map_For_Null_Fields_List_Should_Return_Null_Target_Object()
 			throws OwnMapperException {
 
@@ -45,7 +45,7 @@ public class OwnMapperTest {
 
 	}
 
-	@Test()
+	@Test
 	public void map_For_Not_Null_Fields_List_Should_Return_Target_Object()
 			throws OwnMapperException, NoSuchFieldException, SecurityException {
 
@@ -62,5 +62,6 @@ public class OwnMapperTest {
 		Assert.assertNotNull(details);
 
 	}
+	
 
 }

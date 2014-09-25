@@ -22,6 +22,7 @@ public class ObjectForMappingFactory {
 		cc.setCardType("Visa");
 		cc.setExpMonth((byte) 10);
 		cc.setExpYear(2016);
+		
 
 		return cc;
 	}
