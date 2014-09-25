@@ -1,6 +1,7 @@
 package com.johnkuper.mapper;
 
 import java.lang.annotation.Annotation;
+import java.lang.reflect.Field;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -38,5 +39,16 @@ public class ValidatorOfClasses {
 			throw new OwnMapperException(msg);
 		}
 
+	}
+
+	public boolean isBothClassesContainFields(Class<?> input, Class<?> output) {
+
+		Field[] srcFields = input.getDeclaredFields();
+		Field[] destiFields = output.getDeclaredFields();
+
+		if (srcFields.length > 0 && destiFields.length > 0) {
+			return true;
+		}
+		return false;
 	}
 }

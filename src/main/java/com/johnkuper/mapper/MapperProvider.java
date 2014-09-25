@@ -22,7 +22,8 @@ public class MapperProvider {
 	private Map<String, String> fieldsNamesMap = new TreeMap<>();
 	private ValidatorOfClasses validator;
 
-	public MapperProvider(Class<?> srcClass, Class<?> destiClass, ValidatorOfClasses validator) {
+	public MapperProvider(Class<?> srcClass, Class<?> destiClass,
+			ValidatorOfClasses validator) {
 		this.srcClass = srcClass;
 		this.destiClass = destiClass;
 		this.validator = validator;
@@ -35,7 +36,10 @@ public class MapperProvider {
 		if (validator.isAnnotationNameEqualWithOutputClassName(srcClass,
 				destiClass)) {
 			logger.debug("Output class name verification is successfully");
-			return true;
+			if (validator.isBothClassesContainFields(srcClass, destiClass)) {
+				logger.debug("Both classes contain fiels");
+				return true;
+			}
 		}
 		return false;
 	}
@@ -90,6 +94,7 @@ public class MapperProvider {
 				+ srcClass.getSimpleName() + " to "
 				+ destiClass.getSimpleName());
 		try {
+
 			for (String value : keys) {
 				srcFieldName = value;
 				targetFieldName = fieldsNamesMap.get(srcFieldName);

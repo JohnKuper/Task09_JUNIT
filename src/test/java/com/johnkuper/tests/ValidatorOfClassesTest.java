@@ -2,14 +2,19 @@ package com.johnkuper.tests;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.runners.MockitoJUnitRunner;
 
 import com.johnkuper.dataformapping.BillingDetails;
+import com.johnkuper.dataformapping.CreditCard;
 import com.johnkuper.datafortests.BillingDetailsForTest;
 import com.johnkuper.datafortests.CreditCardForTest;
+import com.johnkuper.datafortests.CreditCardWithoutFields;
 import com.johnkuper.exceptions.OwnMapperException;
 import com.johnkuper.mapper.FieldsContainer;
 import com.johnkuper.mapper.ValidatorOfClasses;
 
+@RunWith(MockitoJUnitRunner.class)
 public class ValidatorOfClassesTest {
 
 	ValidatorOfClasses validator = new ValidatorOfClasses();
@@ -38,6 +43,26 @@ public class ValidatorOfClassesTest {
 		boolean check = validator.isAnnotationNameEqualWithOutputClassName(
 				CreditCardForTest.class, BillingDetailsForTest.class);
 		Assert.assertTrue(check);
+	}
+
+	@Test
+	public void both_Classes_Contain_Fields_Should_Return_True() {
+
+		boolean check = validator.isBothClassesContainFields(CreditCard.class,
+				BillingDetails.class);
+		Assert.assertTrue(check);
+	}
+
+	/*
+	 * Very strange behavior of test. When first run it work correct, but second
+	 * and more shouldfalse=true. It happends when I use 'Run As' with EclEmma. Looks like a bug. 
+	 */
+	@Test
+	public void one_Class_Not_Contain_Fiedls_Should_Return_False() {
+
+		boolean shouldfalse = validator.isBothClassesContainFields(
+				CreditCardWithoutFields.class, BillingDetails.class);
+		Assert.assertFalse(shouldfalse);
 	}
 
 }

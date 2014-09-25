@@ -10,8 +10,6 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import com.johnkuper.dataformapping.BillingDetails;
 import com.johnkuper.dataformapping.CreditCard;
@@ -22,8 +20,6 @@ import com.johnkuper.mapper.OwnMapper;
 
 @RunWith(MockitoJUnitRunner.class)
 public class OwnMapperTest {
-
-	final static Logger logger = LoggerFactory.getLogger("JohnKuper");
 
 	OwnMapper mapper;
 
@@ -66,6 +62,5 @@ public class OwnMapperTest {
 		Assert.assertNotNull(details);
 
 	}
-
 
 }
