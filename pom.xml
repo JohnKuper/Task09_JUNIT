@@ -5,6 +5,7 @@
 	<artifactId>Task09_JUNIT</artifactId>
 	<version>0.1</version>
 	
+	<build>
 	<plugins>
 		<plugin>
 			<groupId>org.apache.maven.plugins</groupId>
@@ -16,6 +17,7 @@
 			</configuration>
 		</plugin>
 	</plugins>
+	</build>
 
 	<dependencies>
 		<dependency>
